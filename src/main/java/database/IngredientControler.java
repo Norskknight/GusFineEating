@@ -46,6 +46,4 @@ public class IngredientControler {
     Ingredient ingredient = entityManager.find(Ingredient.class, ingredientId);    
     entityManager.remove(ingredient);
 }
-
-
 }

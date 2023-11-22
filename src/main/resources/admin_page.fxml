@@ -4,26 +4,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gfe.AdminPageController">
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="database.AdminPageController">
 
-    <top>
-        <HBox>
-            <Label text="Employee Management" styleClass="title-label" />
+    <Label text="Employee Management" styleClass="title-label" />
+
+     <HBox spacing="10">
+        <Label text="employee Name:" />
+        <TextField fx:id="employeeNameTextField" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="employee Position:" />
+        <TextField fx:id="positionTextField" />
+    </HBox>
             <Button text="Add Employee" onAction="#openAddEmployeeDialog" />
-        </HBox>
-    </top>
-
-    <center>
         <TableView fx:id="employeeTable">
             <columns>
                 <TableColumn text="ID" fx:id="idColumn" />
-                <TableColumn text="Name" fx:id="nameColumn" />
-                <TableColumn text="Position" fx:id="positionColumn" />
-                <TableColumn text="Actions" fx:id="actionsColumn" />
+                <TableColumn text="Name" onEditCommit="#changeEmployeeName" fx:id="nameColumn" />
+                <TableColumn text="Position" onEditCommit="#changeEmployeePosition" fx:id="positionColumn" />
             </columns>
         </TableView>
-    </center>
-
-</BorderPane>
+        <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefWidth="175.0" text="Delete Employee " />
+</VBox>

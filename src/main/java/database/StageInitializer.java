@@ -15,7 +15,8 @@ import org.springframework.core.io.Resource;
 public class StageInitializer implements ApplicationListener<App.StageReadyEvent>{
     
     //@Value("classpath:/IngredientStockKeeper.fxml")
-    @Value("classpath:/Version1.fxml")
+    //@Value("classpath:/Version1.fxml")
+    @Value("classpath:/admin_page.fxml")
     private Resource stockaResource;
     private ApplicationContext applicationContext;
 

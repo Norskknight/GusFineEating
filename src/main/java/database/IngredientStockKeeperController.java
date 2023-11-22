@@ -44,9 +44,11 @@ public void initialize(){
     
     nameColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("name"));
     quantityColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, Integer>("count"));
+
     quantityColumn.setEditable(true);
     ingredientTable.setEditable(true);
     nameColumn.setEditable(true);
+    
     nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 

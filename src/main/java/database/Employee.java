@@ -1,53 +1,24 @@
 package database;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import lombok.Data;
 
+@Entity
+@Table(name = "employees")
+@Data
 public class Employee {
-    private final SimpleIntegerProperty id;
-    private final SimpleStringProperty name;
-    private final SimpleStringProperty position;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-    public Employee(int id, String name, String position) {
-        this.id = new SimpleIntegerProperty(id);
-        this.name = new SimpleStringProperty(name);
-        this.position = new SimpleStringProperty(position);
-    }
+    private String name;
+    private String position;
 
-    public int getId() {
-        return id.get();
-    }
-
-    public void setId(int id) {
-        this.id.set(id);
-    }
-
-    public SimpleIntegerProperty idProperty() {
-        return id;
-    }
-
-    public String getName() {
-        return name.get();
-    }
-
-    public void setName(String name) {
-        this.name.set(name);
-    }
-
-    public SimpleStringProperty nameProperty() {
-        return name;
-    }
-
-    public String getPosition() {
-        return position.get();
-    }
-
-    public void setPosition(String position) {
-        this.position.set(position);
-    }
-
-    public SimpleStringProperty positionProperty() {
-        return position;
-    }
 }
