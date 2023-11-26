@@ -8,15 +8,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.*;
-import javafx.util.Callback;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AdminPageController {
 @Autowired private EmployeeControler EC;
+
     @FXML
     private TableView<Employee> employeeTable;
     @FXML
@@ -33,6 +34,16 @@ public class AdminPageController {
     private TextField positionTextField;
 
     private ObservableList<Employee> EList;
+
+
+ @Autowired
+    private ApplicationContext applicationContext;
+
+    public  ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+
 
     public void initialize() {
         EList = (FXCollections.observableArrayList(EC.findAll()));

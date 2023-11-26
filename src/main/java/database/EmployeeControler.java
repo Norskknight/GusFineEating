@@ -17,8 +17,9 @@ public class EmployeeControler {
     @PersistenceContext private EntityManager entityManager;
     //create
     @Transactional
-    public void save(Employee employee) {
+    public Employee save(Employee employee) {
         entityManager.persist(employee);
+        return employee;
     }
 
     //readByID
@@ -41,8 +42,8 @@ public class EmployeeControler {
 
     //Delete 
     @Transactional
-    public void delete(Integer employeeId) {
-    Employee employee = entityManager.find(Employee.class, employeeId);    
+    public void delete(int id) {
+    Employee employee = entityManager.find(Employee.class, id);    
     entityManager.remove(employee);
 }
 }

@@ -98,9 +98,9 @@ public void initialize(){
             // Display an error message or handle the invalid input
         } else {
             // Create a new Ingredient object
-            Ingredient ingredient = new Ingredient();
-            ingredient.setName(ingredientName);
-            ingredient.setCount(quantity);
+            Ingredient ingredient = new Ingredient(0,ingredientName,quantity,1);
+            //ingredient.setName(ingredientName);
+           // ingredient.setCount(quantity);
            
             // Add the ingredient to the table view or update the existing ingredient
             IC.save(ingredient);

@@ -17,8 +17,6 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-
     private String name;
     private String position;
-
 }

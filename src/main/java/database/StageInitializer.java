@@ -14,17 +14,24 @@ import org.springframework.core.io.Resource;
 @Component
 public class StageInitializer implements ApplicationListener<App.StageReadyEvent>{
     
-    //@Value("classpath:/IngredientStockKeeper.fxml")
+    @Value("classpath:/IngredientStockKeeper.fxml")
     //@Value("classpath:/Version1.fxml")
-    @Value("classpath:/admin_page.fxml")
+    //@Value("classpath:/admin_page.fxml")
     private Resource stockaResource;
-    private ApplicationContext applicationContext;
+    private static ApplicationContext applicationContext;
+
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
 
 
     public StageInitializer(ApplicationContext applicationContext){
-        this.applicationContext = applicationContext;
+        StageInitializer.applicationContext = applicationContext;
 
     }
+    
+
 @Override
 public void onApplicationEvent(StageReadyEvent event) {
     try {
